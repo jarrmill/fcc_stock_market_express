@@ -32,7 +32,7 @@ mongoose.connect(uristring, function(err, res){
   }
 });
 
-io = socket(server);
+io = socket(server, {origins: '*:*'});
 
 io.on('connection', (socket) => {
     console.log(socket.id);
