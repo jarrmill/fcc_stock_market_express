@@ -11,7 +11,7 @@ exports.newStock = function(stock_name){
     const root_url = "https://www.quandl.com/api/v3/datasets/WIKI/"
     const datatype = "/data.json?api_key=";
     const start_date = "&start_date=2000-01-01"
-    const api_key = "b_E8Lf_YyoR8LxfC6wmd";
+    const api_key = process.env.QUANDL_KEY;
     const color = Color.getRandomColor();
     var full_url = root_url + stock_name + datatype + api_key + start_date;
     console.log("Initiating get request at: ", full_url);
@@ -46,6 +46,7 @@ exports.getStocks = function(req, res, next){
     }
     if(!stocks[0]){
       console.log("No stocks found");
+      newStock("AAPL");
       return res.status(200).send(null);
     }
     return res.status(200).json(stocks);

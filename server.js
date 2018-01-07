@@ -36,7 +36,7 @@ mongoose.connect(uristring, function(err, res){
 io = socket(server);
 
 io.on('connection', (socket) => {
-    console.log(socket.id);
+    console.log("Client has connected");
 
     socket.on('NEW_STOCK', function(data){
       console.log("Request recieved for ", data.stock);
