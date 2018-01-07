@@ -19,8 +19,9 @@ app.get("/", function (req, res){
 
 app.get("/getstocks", Stocks.getStocks)
 
-server = app.listen(8080, function(){
-    console.log('server is running on port 8080')
+server = app.listen(process.env.PORT || 8080, function(){
+    var port = server.address().port;
+    console.log('Server is running on port ', port);
 });
 //middleware
 
