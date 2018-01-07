@@ -51,7 +51,6 @@ exports.getStocks = function(req, res, next){
       }).catch(err => {
         return res.status(500).send(err);
       });
-      return res.status(200).send(null);
     }
     return res.status(200).json(stocks);
   });
