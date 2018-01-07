@@ -90,7 +90,6 @@ initStock = function(stock_name){
     const datatype = "/data.json?api_key=";
     const start_date = "&start_date=2000-01-01"
     const api_key = process.env.QUANDL_KEY;
-    console.log("api key: ", api_key);
     const color = Color.getRandomColor();
     var full_url = root_url + stock_name + datatype + api_key + start_date;
     //api call
