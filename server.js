@@ -14,7 +14,7 @@ app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({extended: true}));
 
 app.get("/", function (req, res){
-  res.status(200).json("hello!");
+  res.status(200).send("Welcome to J's FCC Stock server page!");
 });
 
 app.get("/getstocks", Stocks.getStocks)
@@ -32,7 +32,7 @@ mongoose.connect(uristring, function(err, res){
   }
 });
 
-io = socket(server, {origins: '*:*'});
+io = socket(server);
 
 io.on('connection', (socket) => {
     console.log(socket.id);
